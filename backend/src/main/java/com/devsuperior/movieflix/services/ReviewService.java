@@ -1,5 +1,8 @@
 package com.devsuperior.movieflix.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,5 +44,11 @@ public class ReviewService {
 		
 		review = repository.save(review);		
 		return new ReviewDTO(review);
+	}
+	
+	@Transactional(readOnly = true)
+	public List<ReviewDTO> reviewByMovie(Long movieId) {
+		List<Review> list = repository.findByMovie(movieId);
+		return list.stream().map(x -> new ReviewDTO(x)).collect(Collectors.toList());
 	}
 }

@@ -15,7 +15,7 @@ import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
 public class MovieService {
 
 	@Autowired
-	private MovieRepository repository;
+	private MovieRepository repository;	
 	
 	@Transactional(readOnly = true)
 	public MovieDTO findById(Long id) {
@@ -23,4 +23,5 @@ public class MovieService {
 		Movie entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new MovieDTO(entity);
 	}
+	
 }
