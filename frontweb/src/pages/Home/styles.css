@@ -31,7 +31,7 @@
   .auth-banner-container {
     display: flex;
     flex-direction: column;
-    margin-top: 45px;
+    margin-top: 75px;
   }
 
   .auth-banner-container h1 {
@@ -43,6 +43,7 @@
   .auth-banner-container p {
     font-size: 22px;
     width: 300px;
+    font-weight: normal;
     letter-spacing: -0.015em;
     color: #f2f2f2;
   }
